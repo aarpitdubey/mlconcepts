@@ -21,4 +21,16 @@ f(4) = 13 and
 
 f(11) = 34 then, 
 
-the **f(X) = 3 *** **X + 1** is the fuction w.r.t to X so, y = 3 * X + 1
+the **f(X) = 3 * X + 1** is the fuction w.r.t to X so, y = 3 * X + 1
+
+**Approach:** The data is split into a training dataset and test dataset. The training set has labels, so your model can learn from these labeled examples.
+
+The test set does not have labels, i,e., you don'y yet know the value you're trying to predict.
+
+It's important that your model can generalize to situations it hasn't encountered before so that it can perform well on the test data.
+
+Training Dataset = 80% of dataset + labels - It is from training the model (algorithm)
+
+Test Dataset        = 20% of dataset (without labels) - It is to evaluate the model
+
+![img]()
