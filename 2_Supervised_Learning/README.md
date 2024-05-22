@@ -50,4 +50,4 @@ We would like to build a model that approximates the relationship ***f***  betwe
 
 Therefore, In supervised learning, the machine attempts to learn the relationship between X and Y, by running labeled training data through a learning algorithm.
 
-![img]()
+![img](./output/supervised_learning.png "Arpit Dubey")
