@@ -15,11 +15,11 @@ Let's examine the problem of predicting student's marks based upon number of hou
 
 f(X) = y Hence, if f(5) = 15,
 
- f(3) = 10, 
+ f(3) = 10,
 
-f(4) = 13 and 
+f(4) = 13 and
 
-f(11) = 34 then, 
+f(11) = 34 then,
 
 the **f(X) = 3 * X + 1** is the fuction w.r.t to X so, y = 3 * X + 1
 
@@ -32,5 +32,22 @@ It's important that your model can generalize to situations it hasn't encountere
 Training Dataset = 80% of dataset + labels - It is from training the model (algorithm)
 
 Test Dataset        = 20% of dataset (without labels) - It is to evaluate the model
+
+![img](./output/test_example.png "Arpit Dubey")
+
+But in realistic data, we not get the accurate prediction means our prediction is moreover approximation rather than accurate value.
+
+![img](./output/realistic_data.png "Arpit Dubey")
+
+We would like to build a model that approximates the relationship ***f***  between number of hours **X** and marks scored **Y**.
+
+> **Y = *f* ( X ) + ε**
+
+- **X ( input )     -** number of hours of study
+- **Y ( output )   -** marks scored
+- ***f* ( function ) -** describing the relationship between X and Y.
+- **ε (epsilon)     -**  random error with zero mean to account for unmodeled features/inherent noise in the data.
+
+Therefore, In supervised learning, the machine attempts to learn the relationship between X and Y, by running labeled training data through a learning algorithm.
 
 ![img]()
