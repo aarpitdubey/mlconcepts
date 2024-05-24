@@ -46,11 +46,11 @@ Here in above diagram we can see the Line L1 is better as compare to Line L2 bec
 
 **Sum of Squared Error (SSE) :** The Sum of Squared Error (SSE) is a metric used to quantify the overall discrepancy between the actual data points and the values predicted by a model. It is calculated by taking the sum of the squared differences between each actual data point and its corresponding predicted value. The formula for SSE can be expressed as:
 
-**𝑆𝑆𝐸 = $ \Sigma_{i=1}^m ( {y}-\hat{y} )^2$**
+**𝑆𝑆𝐸 = $\Sigma_{i=1}^m ( {y}-\hat{y} )^2$**
 
 **Mean Square Error (MSE) :** The mean square error, often denoted as MSE, is a metric that calculates the average of the squares of the errors between the actual and predicted values. It is represented by the formula:
 
-**𝑀𝑆𝐸=$\frac{1}{m} \Sigma_{i=1}^m ( {y}-\hat{y} )^2$**
+**𝑀𝑆𝐸 = $\frac{1}{m} \Sigma_{i=1}^m ( {y}-\hat{y} )^2$**
 
 Here, m represents the number of data points, $ y_{i}$ denotes the actual values, and $\hat y_{i}$ represents the predicted values.
 
