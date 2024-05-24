@@ -30,11 +30,11 @@ where, m is the slope, c is the intercept and x is the coefficient.
 
 **Loss Function:** The loss function is a measure of how close we are to the true/target value or in general, it is a measure of how good the algorithm is doing. The lower the loss the better our predictions will be.
 
-**J(***θ***) = $\frac{1}{m} \Sigma_{i=1}^m ( {y}-\hat{y} )^2$**
+**J(***θ***) = $\frac{1}{2m} \Sigma_{i=1}^m ( {y}-\hat{y} )^2$**
 
 (OR)
 
-J($\Theta_{0}, \Theta_{1})$ = $\frac{1}{m} \Sigma_{i=1}^m ( {y}^{i}-h_{\Theta}^{i}(x) )^2$
+J($\Theta_{0}, \Theta_{1})$ = $\frac{1}{2m} \Sigma_{i=1}^m ( {y}^{i}-h_{\Theta}^{i}(x) )^2$
 
 ![img](./output/abs_error.png "Arpit Dubey")
 
