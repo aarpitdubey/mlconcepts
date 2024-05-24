@@ -38,7 +38,7 @@ J($\Theta_{0}, \Theta_{1})$ = $\frac{1}{2m} \Sigma_{i=1}^m ( {y}^{i}-h_{\Theta}^
 
 ![img](./output/abs_error.png "Arpit Dubey")
 
-Here in above diagram we can see the Line L1 is better as compare to Line L2 because the distance/error/residual from actual datapoint from the prediction lines L1 & L2 is lesser in comparison. 
+Here in above diagram we can see the Line L1 is better as compare to Line L2 because the distance/error/residual from actual datapoint from the prediction lines L1 & L2 is lesser in comparison.
 
 **Absolute Error :** The absolute error, denoted as **|𝑦 − 𝑦̂|**, measures the absolute difference between the actual value **(𝑦)** and the predicted or estimated value **(𝑦̂)**. It quantifies the magnitude of the error without considering its direction. The formula for absolute error is: **∣𝑦−𝑦̂∣** and Total absolute error will be:
 
@@ -60,3 +60,17 @@ Here, m represents the number of data points, $ y_{i}$ denotes the actual values
 
   ![img](./output/differentiability_of_mse.png "Arpit Dubey")
 * It is "**differentiable"** and exhibits some desirable mathematical properties, making it convenient for optimization algorithms.
+
+**Step 3: Training - an algorithm that reduces error on training data**
+
+- Starting with a random $\Theta$, we need an algorithm that iteratively improves $\Theta$ by reducing $J(\Theta)$ in each step and converges eventually to minimum error.
+- Task: find the parameters that minimize loss, i.e. make our model as accurate as possible.
+
+### Gradient Descent
+
+- )The **gradient descent algorithm is an optimization technique used to minimize the cost function by iteratively adjusting the model parameters**.
+- To efficiently perform this optimization, it requires the **cost function to be differentiable**.
+- The differential function allows the algorithm to calculate the gradient, indicating the direction and magnitude of the steepest ascent or descent. Without a differentiable cost function, the algorithm cannot determine the appropriate direction for parameter updates, hindering its convergence towards the optimal solution.
+
+  ![img](./output/gradient_descent.jpg "Arpit Dubey")
+- MSE is preferred over absolute error due to **its enhanced sensitivity to larger errors and mathematical properties**, while a differential function is essential for the gradient descent algorithm to **iteratively optimize the model parameters** in a differentiable cost function.
