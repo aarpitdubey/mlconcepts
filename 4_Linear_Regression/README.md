@@ -68,9 +68,111 @@ Here, m represents the number of data points, $ y_{i}$ denotes the actual values
 
 ### Gradient Descent
 
-- )The **gradient descent algorithm is an optimization technique used to minimize the cost function by iteratively adjusting the model parameters**.
+- The **gradient descent algorithm is an optimization technique used to minimize the cost function by iteratively adjusting the model parameters**.
 - To efficiently perform this optimization, it requires the **cost function to be differentiable**.
 - The differential function allows the algorithm to calculate the gradient, indicating the direction and magnitude of the steepest ascent or descent. Without a differentiable cost function, the algorithm cannot determine the appropriate direction for parameter updates, hindering its convergence towards the optimal solution.
 
   ![img](./output/gradient_descent.jpg "Arpit Dubey")
 - MSE is preferred over absolute error due to **its enhanced sensitivity to larger errors and mathematical properties**, while a differential function is essential for the gradient descent algorithm to **iteratively optimize the model parameters** in a differentiable cost function.
+
+Let's code Gradient Descent in python using a quadratic function
+
+$y = f(x) = (x - 5)^2 + 3$
+
+**Step 1: Import the necessary libraries**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+```
+
+**Step 2: Get data for X and Y**
+
+```python
+# Generate data using a dummy function
+X = np.arange(10)
+Y = (X - 5)**2 + 3
+
+print(X, Y)
+```
+
+![img](./output/gd1.png)
+
+**Step 3: Plot a Graph for these value**
+
+```Python
+plt.style.use('seaborn-v0_8-whitegrid')
+plt.plot(X, Y)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.show()
+```
+
+![img](./output/gd2.png)
+
+**Step 4: Perform Gradient Descent Optimization**
+
+```python
+# Gradient Descent when slope/gradient is negative
+# Initialize x with any random value
+x = 0
+# Learning rate (lr)
+lr = 0.1
+
+# Plot X and Y
+plt.plot(X, Y)
+
+for i in range(50):
+	# let's define the dy/dx or slope or we said it as gradient which is differenciation of y = f(x)
+	gradient = 2 * (x - 5) 
+
+	# Update in value of x
+	x = x - lr * gradient
+	# Value of y w.r.t x (small x)
+	y = (x - 5) ** 2 + 3
+
+	# plotting data points in scatter points
+	plt.scatter(x, y)
+
+	print(x)
+
+plt.show()
+
+```
+
+![img](./output/gd3.png)
+
+![img](./output/gd4.png)
+
+ **Step 5:** **Performing Gradient Descent when slope is positive slope**
+
+```python
+# Gradient Descent when slope/gradient is positive
+# Initialize x with any random value
+x = 9
+# Learning rate (lr)
+lr = 0.1
+
+# Plot X and Y
+plt.plot(X, Y)
+
+for i in range(50):
+	# let's define the dy/dx or slope or we said it as gradient which is differenciation of y = f(x)
+	gradient = 2 * (x - 5) 
+
+	# Update in value of x
+	x = x - lr * gradient
+	# Value of y w.r.t x (small x)
+	y = (x - 5) ** 2 + 3
+
+	# plotting data points in scatter points
+	plt.scatter(x, y)
+
+	print(x)
+
+plt.show()
+```
+
+![img](./output/gd5.png)
+
+![img](./output/gd6.png)
