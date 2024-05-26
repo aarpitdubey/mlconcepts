@@ -185,4 +185,4 @@ $J(\Theta)$ = J($\Theta_{0}, \Theta_{1})$ = $\frac{1}{2m} \Sigma_{i=1}^m ( h_{\T
 
 ![img](./output/gradient_descent_1.png)
 
-![img]()
+![img](./output/gradient_descent_2.png)
