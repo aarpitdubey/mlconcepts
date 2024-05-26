@@ -176,3 +176,13 @@ plt.show()
 ![img](./output/gd5.png)
 
 ![img](./output/gd6.png)
+
+- If there is a function $f(x)$ and we want the minimum value of $f(x)$ we using this optimization algorithm
+- Starting with any random value of $x$, then updation of that value of $x$ and then, It will converge upto the local minima.
+- The Cost function $J(\Theta)$ in linear regression, it have only one minima so, that lacal minima is considered as the global minima since, the goal of this optimization is to reach the global minima.
+
+$J(\Theta)$ = J($\Theta_{0}, \Theta_{1})$ = $\frac{1}{2m} \Sigma_{i=1}^m ( h_{\Theta}^{i}(x) - {y}^{i} )^2$
+
+![img](./output/gradient_descent_1.png)
+
+![img]()
