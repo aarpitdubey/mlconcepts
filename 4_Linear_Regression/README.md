@@ -272,4 +272,6 @@ def plotData(X, Y, color="orange", title="Data"):
 plotData(X, Y)
 ```
 
-![img]()
+Let Y = Work Efficiency and X = Marks just assume then the plot looks like below Plot:
+
+![img](./output/generated_data.png)
