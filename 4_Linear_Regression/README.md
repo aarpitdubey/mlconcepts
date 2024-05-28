@@ -185,6 +185,91 @@ $J(\Theta)$ = J($\Theta_{0}, \Theta_{1})$ = $\frac{1}{2m} \Sigma_{i=1}^m ( h_{\T
 
 ![img](./output/gradient_descent_1.png)
 
-.
+parameters $(\Theta)$ = [$\Theta_{0}, \Theta_{1}]$
 
 ![img](./output/gradient_descent_2.png)
+
+ **Mathematics behind Gradient Descent**
+
+Gradient Descent Convergence formula:
+
+$\Theta_{j+1} $ := $\Theta_{j}$ - $\alpha * \frac{\partial}{\partial \theta} J(\theta) $
+
+* $\theta_{j+1}$  represents the updated value of the parameter at iteration ( j +1) of new value
+* $\theta_j $ represents the current value of the parameter at iteration ( j )
+* $\alpha $ represents the learning rate
+* $\frac{\partial}{\partial \theta} J(\theta) $ represents the partial derivative of the cost function ( $J(\theta)$ ) with respect to the parameter ( $\theta$ )
+
+In simple terms: parameter = parameter - LR * partial derivative of Loss w.r.t parameter
+
+![img](./output/maths.jpg "Arpit Dubey")
+
+A **partial derivative** $\frac{\partial}{\partial \theta} J(\theta)$  indicates how much total loss is increased (or) decreased if you increase $\Theta$ parameter by small amount.
+
+### Implementation of Linear Regression
+
+**Step1: Import Required Libraries**
+
+```python
+# Importing required Libraries
+import numpy as np
+import matplotlib.pyplot as plt
+plt.style.use('seaborn-v0_8-whitegrid')
+```
+
+Let's assume a linear function $Y = f(x)$, where $f(x$) = 3 * X + 1 + (noise) is a linear function.
+
+**Step 2: Data Generation**
+
+```python
+def generateDataset(m):  
+	# array of X  
+	X     = np.random.randn(m) * 10  
+	noise = np.random.randn(m) * 5  
+	Y     = 3 * X + 1 + noise  
+        return X, Y
+```
+
+
+
+`def generateDataset(m):` - This line defines a function named `generateDataset` that takes one parameter `m`.
+
+`X = np.random.randn(m) * 10` - This line generates an array of random numbers following a standard normal distribution with mean 0 and standard deviation 1, using `np.random.randn(m)`, and then scales these numbers by 10 to create an array `X`. This array represents the input variable X in a dataset.
+
+`noise = np.random.randn(m) * 5` - This line generates another array of random numbers following a standard normal distribution, this time scaled by 5 to create a noise array that represents random noise in the dataset.
+
+`Y = 3 * X + 1 + noise` - This line calculates the output variable `Y` using a linear relationship with `X`, a constant term `1`, and the noise. Basically, it's a linear relationship with
+
+some added noise.
+
+`return X, Y` - This line returns the arrays `X` and `Y` as the output of the function.
+
+The `np.random.randn()` function is used here to generate random numbers that follow a standard normal distribution. In statistics, the standard normal distribution has a mean ($\mu$) of 0 and a standard deviation($\sigma$) of 1, and generating random numbers from a standard normal distribution is used to simulate real-world scenarios where many natural phenomena tend to follow a normal distribution. Additionally, using a standard normal distribution simplifies the modeling process and allows for straightforward easier interpretation of the generated dataset.
+
+![img](./output/std_normal_dist.png "Arpit Dubey")
+
+```python
+# Calling generateDataset() function and distribution of data along X and Y printing shape of X and Y.
+X, Y = generateDataset(100)
+print(X.shape, Y.shape)
+
+# Mean and Standard Deviation
+print(f"Mean : {X.mean()} and Standard Deviation : {X.std()}")
+```
+
+![img](./output/lr1.png)
+
+**Step 3: Visualization of Generated data**
+
+```python
+def plotData(X, Y, color="orange", title="Data"):
+    plt.xlabel('Marks')
+    plt.ylabel('Work Efficiency')
+    plt.scatter(X, Y, color=color)
+    plt.title(title)
+    plt.show()
+  
+plotData(X, Y)
+```
+
+![img]()
