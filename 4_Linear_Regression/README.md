@@ -208,6 +208,8 @@ A **partial derivative** $\frac{\partial}{\partial \theta} J(\theta)$  indicates
 
 ### Implementation of Linear Regression
 
+#### 1. Data Generation
+
 **Step1: Import Required Libraries**
 
 ```python
@@ -229,8 +231,6 @@ def generateDataset(m):
 	Y     = 3 * X + 1 + noise  
         return X, Y
 ```
-
-
 
 `def generateDataset(m):` - This line defines a function named `generateDataset` that takes one parameter `m`.
 
@@ -275,3 +275,74 @@ plotData(X, Y)
 Let Y = Work Efficiency and X = Marks just assume then the plot looks like below Plot:
 
 ![img](./output/generated_data.png)
+
+#### 2. Data Normalization
+
+- Data normalization is a preprocessing technique **used to rescale the values of numeric features into a specific range**, typically to improve the performance and convergence of machine learning algorithms.
+- It aims to **bring** **all feature values to a similar scale** so that no single feature dominates the others, which can help in achieving better performance and stability in machine learning models.
+- **Data normalization involves transforming the numeric features of a dataset to a common scale, often between 0 and 1 or with a mean of 0 and a standard deviation of 1**. This is typically achieved using mathematical transformations such as **Min-Max scaling or standardization**.
+
+  let's took a data about Height (cm), Age (years) and Salary (US dollars $)
+
+| Feature                        | Min Value | Max Value |
+| ------------------------------ | --------- | --------- |
+| Height (cm)$ \Theta_{1}$     | 140 cm    | 200 cm    |
+| Age (years)$ \Theta_{2}$     | 20 years  | 60 years  |
+| Salary (dollars$)\Theta_{3}$ | $ 30,000  | 150,000   |
+
+**Impact of different scale in features of same dataset:** The salary feature has a much larger scale compared to height and age, which can impact the learning process, causing the model to be biased towards salary.
+
+$\Theta_j(new) = \Theta_j(old) - \alpha * \frac{\partial}{\partial \theta} J(\theta)$
+
+(OR)
+
+$\Theta_j(new) = \Theta_j(old) - \alpha$ * $\Sigma_{i=1}^m ( h_{\Theta}^{i}(x) - {y}^{i} ) * {x}^{(i)}_{j}$
+
+**Hence, updating the $\Theta_j(new)$ is directly proportional to the feature (${x}^{(i)}_{j}$) value so, we need to scale.**
+
+- The presence of feature ($x$) in the formula will affect the step size of the gradient descent
+- The different ranges of features will cause different step sizes for each features. for example - features like age, salary will have very different scales.
+- To ensure that the gradient descent moves smoothly towards the minima and that the steps for gradient descent are updated at the same rate for all the features, we have to scaled the data before feeding it to the model.
+
+Min-Max scaling use to bring all features to a common scale between 0 and 1 using the formula:
+
+$x_{\text{norm}} = \dfrac{x - \text{min}(x)}{\text{max}(x) - \text{min}(x)} $
+
+**Starndardization (**Z-score normalization**):**
+
+- Standardization is a data preprocessing technique used to rescale the features of a dataset to have a mean of 0 and a standard deviation of 1.
+- It is also known as z-score normalization.
+- Standardization transforms the features to a common scale, making it easier to compare and interpret them, and it is particularly useful in scenarios where the data follows a normal distribution.
+
+  $x_{\text{std}} = \dfrac{x - \bar{x}_{mean}}{\sigma}$
+
+  * $x_{\text{std}}$ is the standardized value of the feature
+  * $x$ is the original value of the feature
+  * $\bar{x}_{mean}$ is the mean of the feature
+  * $\sigma$ is the standard deviation of the feature
+- The mean of the standardized feature becomes 0, and the standard deviation becomes 1, putting all features on a common scale.
+- Standardization is less sensitive to outliers compared to some other scaling techniques, making it a robust choice when dealing with datasets containing outliers.
+
+```python
+def normalizeData(X):
+    X = (X - X.mean())//X.std()
+    return X
+
+X = normalizeData(X)
+plotData(X, Y)
+
+print(f"Mean : {X.mean()} and Standard Deviation : {X.std()}")
+```
+
+Plot the datset after normalization (or standardization)
+
+![img](./output/normalized_standardized.png)
+
+Mean and Standard Deviation after z-test normalization or standardization ($\mu_{mean}$ is close to 0 and, $\sigma_{std_dev}$ is close to 1 )
+
+![img](./output/mean_std_dev_after_normatization.png)
+
+Difference between Standardization and Normalization:
+
+* **Standardization** : Scales the features to have a mean of 0 and a standard deviation of 1. It assumes that the data follows a normal distribution or at least is not heavily affected by outliers.
+* **Normalization** : Scales the features to a range typically between 0 and 1. It is less influenced by outliers and is suitable for data that doesn't necessarily follow a normal distribution.
